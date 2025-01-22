@@ -6,7 +6,7 @@
 #
 #ENTRYPOINT ["java","-jar","fortunechatbackendwithspring-0.0.1-SNAPSHOT.jar"]
 # Use Maven with Java 21 as the build stage
-FROM maven:3.9.4-eclipse-temurin-21 AS build
+FROM maven:3.8.8-eclipse-temurin-21-alpine AS build
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -22,7 +22,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Use Java 21 runtime for the final image
-FROM eclipse-temurin:21-jre-slim
+FROM maven:3.8.8-eclipse-temurin-21-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
