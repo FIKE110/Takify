@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beautiful Chat Page</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/resources/styles.css">
 </head>
 <body>
 <div class="chat-container">
@@ -21,6 +21,6 @@
     <button id="sendbtn">Click me</button>
 
 </div>
-<script src="/chat.js"></script>
+<script src="/resources/chat.js"></script>
 </body>
 </html>

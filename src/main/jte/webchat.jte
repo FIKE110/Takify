@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebSocket Chat</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/resources/style.css">
 </head>
 <body>
 <div class="chat-container">
@@ -13,6 +13,6 @@
     <button id="sendButton">Send</button>
 </div>
 
-<script src="javascript.js"></script>
+<script src="/resources/javascript.js"></script>
 </body>
 </html>

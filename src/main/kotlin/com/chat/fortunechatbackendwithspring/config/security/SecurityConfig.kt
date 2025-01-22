@@ -39,6 +39,9 @@ class SecurityConfig(private val userService: UserService,private val jwtFilter:
             .authorizeRequests{
                 req->req
                     .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/chats","chat").permitAll()
+                .requestMatchers("/resources/**").permitAll()
+                .requestMatchers("/web","/web/**").permitAll()
                 .requestMatchers("/actuator","/actuator/**").permitAll()
                 .requestMatchers("/v3/api-docs/**",
                     "/swagger-ui/**",

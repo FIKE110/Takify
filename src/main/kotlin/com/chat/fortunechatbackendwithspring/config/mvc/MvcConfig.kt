@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 @EnableWebMvc
 class MvcConfig :WebMvcConfigurer{
     override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
-
+        registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/static/")
     }
 
     override fun addViewControllers(registry: ViewControllerRegistry) {
