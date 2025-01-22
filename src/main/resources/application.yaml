@@ -1,0 +1,39 @@
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  data:
+    mongodb:
+      database: ${db.name}
+      port: ${db.port}
+      host: ${db.host}
+  ai:
+    bedrock:
+      cohere:
+        chat:
+          enabled: true
+cohere:
+  access-key: ${cohere.access-key}
+  name: converse-app
+  model: command-r-plus
+  api: https://api.cohere.com/v2/chat
+hyperbolic:
+  image:
+    model-name: SDXL1.0-base
+    access-key: ${hyberbolic.access-key}
+jwt:
+  expiresAt: ${jwt.expires}
+  signature: ${jwt.sign}
+cloudinary:
+  cloud-name: ${cloudinary.cloud-name}
+  api-key: ${cloudinary.api-key}
+  api-secret: ${cloudinary.api-secret}
+  profile-image:
+    width: 200
+    height: 200
+#debug: true
