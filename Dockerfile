@@ -6,7 +6,6 @@
 #
 #ENTRYPOINT ["java","-jar","fortunechatbackendwithspring-0.0.1-SNAPSHOT.jar"]
 
-# Use Maven as the build stage
 FROM maven:3.9.4-eclipse-temurin-17 AS build
 
 # Set the working directory inside the container
