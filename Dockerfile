@@ -5,30 +5,33 @@
 #EXPOSE 8080
 #
 #ENTRYPOINT ["java","-jar","fortunechatbackendwithspring-0.0.1-SNAPSHOT.jar"]
-
-FROM maven:3.9.4-eclipse-temurin-17 AS build
+# Use Maven with Java 21 as the build stage
+FROM maven:3.9.4-eclipse-temurin-21 AS build
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy Maven's settings to cache dependencies
+# Copy Maven files to cache dependencies
 COPY pom.xml ./
+RUN mvn dependency:go-offline -B
+
+# Copy source code to the container
 COPY src ./src
 
-# Install dependencies and build the project
+# Build the application using Maven
 RUN mvn clean package -DskipTests
 
-# Use a lightweight JDK runtime for the final image
-FROM openjdk:17-jdk-slim
+# Use Java 21 runtime for the final image
+FROM eclipse-temurin:21-jre-slim
 
-# Set the working directory for the app
+# Set the working directory inside the container
 WORKDIR /app
 
 # Copy the built JAR file from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
-# Expose the application's port
+# Expose the application port
 EXPOSE 8080
 
-# Run the application
+# Run the Spring Boot application
 ENTRYPOINT ["java", "-jar", "app.jar"]
