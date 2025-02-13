@@ -34,7 +34,7 @@ class HelloController(
     private val cohereUtilService: CohereUtilService,
 ) {
 
-    @GetMapping("/")
+    @GetMapping("/index")
     fun hello() = "index"
 
     @GetMapping("/profile")

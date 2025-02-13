@@ -38,7 +38,7 @@ class SecurityConfig(private val userService: UserService,private val jwtFilter:
             }
             .authorizeRequests{
                 req->req
-                    .requestMatchers("/api/auth/**").permitAll()
+                    .requestMatchers("/","/api/auth/**").permitAll()
                 .requestMatchers("/chats","chat").permitAll()
                 .requestMatchers("/resources/**").permitAll()
                 .requestMatchers("/web","/web/**").permitAll()
